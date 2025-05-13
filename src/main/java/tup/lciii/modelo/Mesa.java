@@ -51,5 +51,9 @@ public class Mesa {
      */
 
     public void vaciarMesa(Mazo mazo) {
-        //TODO
+        //DONE
+        for (Carta carta : mesa){
+        mazo.agregarCarta(carta);
+        }
+    }
 }

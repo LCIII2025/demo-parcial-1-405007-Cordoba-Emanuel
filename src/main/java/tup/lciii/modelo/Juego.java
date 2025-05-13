@@ -10,12 +10,14 @@ public class Juego {
     private final ArrayList<Jugador> jugadores;
     private final Mesa mesa;
     private final int puntajeMaximo;
+    private final int cantidadJugadores;
 
     public Juego() {
         this.mazo = new Mazo();
         this.jugadores = new ArrayList<>();
         this.mesa = new Mesa();
         this.puntajeMaximo = 100;
+        this.cantidadJugadores = 2;
     }
 
     public ArrayList<Jugador> getJugadores() {
@@ -31,7 +33,8 @@ public class Juego {
     }
 
     public int getCantidadJugadores() {
-        //TODO
+        //DONE
+        return cantidadJugadores;
     }
 
     public int getPuntajeMaximo() {
@@ -44,7 +47,13 @@ public class Juego {
      * @param nombresDeJugadores Una lista de nombres de jugadores.
      */
     public void iniciarJugadores(ArrayList<String> nombresDeJugadores) {
-        //TODO
+        //DONE
+        for (String nombre : nombresDeJugadores){
+            if(nombresDeJugadores.get(0).equals(nombre)){
+                jugadores.add(new Jugador(nombre, true));
+            }
+            jugadores.add(new Jugador(nombre, false));
+        }
     }
 
     public void iniciarMazo() {
@@ -60,7 +69,11 @@ public class Juego {
      * @see Mazo#mezclarMazo()
      */
     public void mezclarMazoYrepartirCartas() {
-        //TODO
+        //DONE
+        mazo.mezclarMazo();
+        for (Jugador jugador : jugadores){
+            mazo.repartirCartas(jugador);
+        }
     }
 
     /**
