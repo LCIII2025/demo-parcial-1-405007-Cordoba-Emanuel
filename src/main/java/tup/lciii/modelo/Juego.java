@@ -4,6 +4,7 @@ import tup.lciii.modelo.enums.Estado;
 import tup.lciii.modelo.enums.Palo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Juego {
     private final Mazo mazo;
@@ -48,11 +49,9 @@ public class Juego {
      */
     public void iniciarJugadores(ArrayList<String> nombresDeJugadores) {
         //DONE
-        for (String nombre : nombresDeJugadores){
-            if(nombresDeJugadores.get(0).equals(nombre)){
-                jugadores.add(new Jugador(nombre, true));
-            }
-            jugadores.add(new Jugador(nombre, false));
+        for (int i = 0; i < nombresDeJugadores.size(); i++) {
+            boolean esTurno = (i == 0);
+            jugadores.add(new Jugador(nombresDeJugadores.get(i), esTurno));
         }
     }
 

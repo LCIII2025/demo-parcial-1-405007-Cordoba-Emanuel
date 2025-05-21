@@ -35,4 +35,13 @@ class MazoTest {
         assertNotEquals(original, mezclado);
         assertEquals(original.size(), mezclado.size());
     }
+
+    @Test
+    void generarMazo() {
+        Mazo mazo = new Mazo();
+        mazo.generarMazo();
+
+        assertNotNull(mazo);
+        assertEquals(48, mazo.getMazoLength());
+    }
 }
